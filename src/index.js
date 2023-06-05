@@ -1,3 +1,4 @@
+import { runPythonScript } from "./helpers/executeScript";
 /**
  * 
  * @param {string} pathToPDFFile - The path to a pdf file
@@ -14,8 +15,10 @@
 }
 
 // Feel free to use or remove this run function
-function run() {
+async function run() {
   console.info('Hello from the index file')
+  const response = await runPythonScript('./python_libraries/best.py', ['annotate'])
+  console.info(response.stdout);
 }
 
 run();
